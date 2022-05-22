@@ -2,7 +2,9 @@ variables:
   EXE_RELEASE_FOLDER: 'Voltage-Drop-Calculator\bin\Release'
   MSI_RELEASE_FOLDER: 'Setup\bin\Release'
   TEST_FOLDER: 'test\build\Release'
-  NUGET_PATH: 'C:\Nuget\nuget.exe'
+  NUGET_PATH: 'C:\Program Files (x86)\Config\'
+  MSBUILD_PATH: 'C:\Program Files (x86)\MSBuild\12.0\Bin\msbuild.exe'
+
 
 stages:
   - build
@@ -15,13 +17,11 @@ build_job:
     - tags
   script:
     - echo 'Hello World'
-    - '& "$env:NUGET_PATH" restore'
 
   artifacts:
     expire_in: 1 week  # save gitlab server space, we copy the files we need to deploy folder later on
     paths:
-      - '$env:EXE_RELEASE_FOLDER\YourApp.exe'  # saving exe to copy to deploy folder
-      - '$env:MSI_RELEASE_FOLDER\YourApp Setup.msi'  # saving msi to copy to deploy folder
+      - '$env:EXE_RELEASE_FOLDER\BatchUploadConverter.exe'  # saving exe to copy to deploy folder
       - '$env:TEST_FOLDER\'  # saving entire Test project so NUnit can run tests
 
 test_job:
@@ -30,7 +30,6 @@ test_job:
     - tags
   script:
     - echo 'Test Job'
-    - '& "$env:NUNIT_PATH" ".\$env:TEST_FOLDER\Tests.dll"'
   artifacts:
     when: always  # save test results even when the task fails
     expire_in: 1 week  # save gitlab server space, we copy the files we need to deploy folder later on
@@ -51,8 +50,8 @@ deploy_job:
     - '$commitSubject = git log -1 --pretty=%s'
 
     # xcopy takes care of recursively creating required folders
-    - 'xcopy /y ".\$env:EXE_RELEASE_FOLDER\YourApp.exe" "$deployFolder"'
-    - 'xcopy /y ".\$env:MSI_RELEASE_FOLDER\YourApp Setup.msi" "$deployFolder"'
+    - 'xcopy /y ".\$env:EXE_RELEASE_FOLDER\BatchUploadConverter.exe" "$deployFolder"'
+    #- 'xcopy /y ".\$env:MSI_RELEASE_FOLDER\YourApp Setup.msi" "$deployFolder"'
     - 'xcopy /y ".\TestResult.xml" "$deployFolder"'
   dependencies:
     - build_job
