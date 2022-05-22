@@ -1,12 +1,29 @@
 ﻿variables:
   EXE_RELEASE_FOLDER: 'Voltage-Drop-Calculator\bin\Release'
   MSI_RELEASE_FOLDER: 'Setup\bin\Release'
-
+  TEST_FOLDER: 'test\build\Release'
+  NUGET_PATH: 'C:\Nuget\nuget.exe'
 
 stages:
   - build
   - test
   - deploy
+
+build_job:
+  stage: build
+  only:
+    - tags
+  script:
+    - echo 'Hello World'
+    - '& "$env:NUGET_PATH" restore'
+
+test_job:
+  stage: test
+  only:
+    - tags
+  script:
+    - echo 'Test Job'
+    - '& "$env:NUNIT_PATH" ".\$env:TEST_FOLDER\Tests.dll"'
 
 
  
