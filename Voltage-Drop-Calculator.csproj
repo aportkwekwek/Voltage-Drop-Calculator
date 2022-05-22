@@ -86,6 +86,7 @@
     <EmbeddedResource Include="Short_Circuit_Current_Calculation.resx">
       <DependentUpon>Short_Circuit_Current_Calculation.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".gitlab-ci.yml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Wwalczyszyn-Android-Style-Calculator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".gitlab\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
