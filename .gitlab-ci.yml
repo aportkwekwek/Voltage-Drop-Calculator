@@ -24,6 +24,34 @@ test_job:
   script:
     - echo 'Test Job'
     - '& "$env:NUNIT_PATH" ".\$env:TEST_FOLDER\Tests.dll"'
+  artifacts:
+    when: always  # save test results even when the task fails
+    expire_in: 1 week  # save gitlab server space, we copy the files we need to deploy folder later on
+    paths:
+      - '.\TestResult.xml'  # saving NUnit results to copy to deploy folder
+  dependencies:
+    - build_job
+
+deploy_job:
+  stage: deploy
+  only:
+    - tags
+  script:
+    # Compose a folder for each release based on commit tag.
+    # Assuming your tag is Rev1.0.0.1, and your last commit message is 'First commit'
+    # the artifact files will be copied to:
+    # P:\Projects\YourApp\Builds\Rev1.0.0.1 - First commit\
+    - '$commitSubject = git log -1 --pretty=%s'
+
+    # xcopy takes care of recursively creating required folders
+    - 'xcopy /y ".\$env:EXE_RELEASE_FOLDER\YourApp.exe" "$deployFolder"'
+    - 'xcopy /y ".\$env:MSI_RELEASE_FOLDER\YourApp Setup.msi" "$deployFolder"'
+    - 'xcopy /y ".\TestResult.xml" "$deployFolder"'
+  dependencies:
+    - build_job
+    - test_job
+
+
 
 
  
