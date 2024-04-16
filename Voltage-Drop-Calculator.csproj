@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0DB3184A-F4FC-47CE-B309-85FBB4338428}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BatchUploadConverter</RootNamespace>
-    <AssemblyName>BatchUploadConverter</AssemblyName>
+    <RootNamespace>VoltageDropCalculator</RootNamespace>
+    <AssemblyName>VoltageDropCalculator</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -82,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Short_Circuit_Current_Calculation.resx">
       <DependentUpon>Short_Circuit_Current_Calculation.cs</DependentUpon>
