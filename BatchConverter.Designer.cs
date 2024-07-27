@@ -1,5 +1,5 @@
 ﻿
-namespace BatchUploadConverter
+namespace VoltageDropCalculator
 {
     partial class BatchConverter
     {

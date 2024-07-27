@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BatchUploadConverter
+namespace VoltageDropCalculator
 {
-    public partial class Short_Circuit_Current_Calculation : Form
+    public partial class VoltageDropCalculatorC : Form
     {
         double kva;
         double el;
@@ -19,7 +19,7 @@ namespace BatchUploadConverter
         double i;
         double c;
         double r;
-        public Short_Circuit_Current_Calculation()
+        public VoltageDropCalculatorC()
         {
             InitializeComponent();
         }

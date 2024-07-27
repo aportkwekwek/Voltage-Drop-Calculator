@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BatchUploadConverter
+namespace VoltageDropCalculator
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace BatchUploadConverter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Short_Circuit_Current_Calculation());
+            Application.Run(new VoltageDropCalculatorC());
         }
     }
 }

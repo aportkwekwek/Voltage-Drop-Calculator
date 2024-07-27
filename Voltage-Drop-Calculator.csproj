@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VoltageDropCalculator</RootNamespace>
     <AssemblyName>VoltageDropCalculator</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -65,11 +65,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Short_Circuit_Current_Calculation.cs">
+    <Compile Include="VoltageDropCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Short_Circuit_Current_Calculation.Designer.cs">
-      <DependentUpon>Short_Circuit_Current_Calculation.cs</DependentUpon>
+    <Compile Include="VoltageDropCalculator.Designer.cs">
+      <DependentUpon>VoltageDropCalculator.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BatchConverter.resx">
       <DependentUpon>BatchConverter.cs</DependentUpon>
@@ -84,8 +84,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Short_Circuit_Current_Calculation.resx">
-      <DependentUpon>Short_Circuit_Current_Calculation.cs</DependentUpon>
+    <EmbeddedResource Include="VoltageDropCalculator.resx">
+      <DependentUpon>VoltageDropCalculator.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".gitlab-ci.yml" />
     <None Include="packages.config" />

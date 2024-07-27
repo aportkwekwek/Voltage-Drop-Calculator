@@ -15,7 +15,7 @@ using System.IO;
 using DevOne.Security.Cryptography.BCrypt;
 
 
-namespace BatchUploadConverter
+namespace VoltageDropCalculator
 {
     public partial class BatchConverter : Form
     {
