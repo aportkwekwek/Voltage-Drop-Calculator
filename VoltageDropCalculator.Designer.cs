@@ -45,7 +45,6 @@ namespace VoltageDropCalculator
             this.txt_C = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_R = new System.Windows.Forms.TextBox();
-            this.btnCalculate = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -92,6 +91,7 @@ namespace VoltageDropCalculator
             this.txt_KVA.Size = new System.Drawing.Size(169, 21);
             this.txt_KVA.TabIndex = 1;
             this.txt_KVA.Text = "100";
+            this.txt_KVA.Enter += new System.EventHandler(this.txt_KVA_Enter);
             // 
             // label2
             // 
@@ -113,6 +113,7 @@ namespace VoltageDropCalculator
             this.txt_E.Size = new System.Drawing.Size(169, 21);
             this.txt_E.TabIndex = 2;
             this.txt_E.Text = "230";
+            this.txt_E.Enter += new System.EventHandler(this.txt_E_Enter);
             // 
             // label3
             // 
@@ -134,6 +135,7 @@ namespace VoltageDropCalculator
             this.txt_Z.Size = new System.Drawing.Size(169, 21);
             this.txt_Z.TabIndex = 3;
             this.txt_Z.Text = "2.5";
+            this.txt_Z.Enter += new System.EventHandler(this.txt_Z_Enter);
             // 
             // label4
             // 
@@ -154,6 +156,7 @@ namespace VoltageDropCalculator
             this.txt_mm.Name = "txt_mm";
             this.txt_mm.Size = new System.Drawing.Size(85, 21);
             this.txt_mm.TabIndex = 4;
+            this.txt_mm.Enter += new System.EventHandler(this.txt_mm_Enter);
             this.txt_mm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_mm_KeyPress);
             this.txt_mm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_mm_KeyUp);
             // 
@@ -187,6 +190,8 @@ namespace VoltageDropCalculator
             this.txt_I.Name = "txt_I";
             this.txt_I.Size = new System.Drawing.Size(169, 21);
             this.txt_I.TabIndex = 5;
+            this.txt_I.Enter += new System.EventHandler(this.txt_I_Enter);
+            this.txt_I.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_I_KeyPress);
             // 
             // label6
             // 
@@ -207,6 +212,8 @@ namespace VoltageDropCalculator
             this.txt_C.Name = "txt_C";
             this.txt_C.Size = new System.Drawing.Size(169, 21);
             this.txt_C.TabIndex = 6;
+            this.txt_C.Enter += new System.EventHandler(this.txt_C_Enter);
+            this.txt_C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_C_KeyPress);
             // 
             // label7
             // 
@@ -227,16 +234,8 @@ namespace VoltageDropCalculator
             this.txt_R.Name = "txt_R";
             this.txt_R.Size = new System.Drawing.Size(169, 21);
             this.txt_R.TabIndex = 7;
-            // 
-            // btnCalculate
-            // 
-            this.btnCalculate.Location = new System.Drawing.Point(285, 474);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(89, 32);
-            this.btnCalculate.TabIndex = 21;
-            this.btnCalculate.Text = "Calculate";
-            this.btnCalculate.UseVisualStyleBackColor = true;
-            this.btnCalculate.Click += new System.EventHandler(this.button1_Click);
+            this.txt_R.Enter += new System.EventHandler(this.txt_R_Enter);
+            this.txt_R.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_R_KeyPress);
             // 
             // label8
             // 
@@ -451,7 +450,6 @@ namespace VoltageDropCalculator
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lbl_multiplier_factor);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.btnCalculate);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.lbl_factorsinglephase);
             this.panel1.Controls.Add(this.label13);
@@ -500,9 +498,8 @@ namespace VoltageDropCalculator
             this.label19.TabIndex = 44;
             this.label19.Text = "Type";
             // 
-            // Short_Circuit_Current_Calculation
+            // VoltageDropCalculatorC
             // 
-            this.AcceptButton = this.btnCalculate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 519);
@@ -528,7 +525,7 @@ namespace VoltageDropCalculator
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.Name = "Short_Circuit_Current_Calculation";
+            this.Name = "VoltageDropCalculatorC";
             this.Text = "Short Circuit Current Calculator";
             this.Load += new System.EventHandler(this.Short_Circuit_Current_Calculation_Load);
             this.panel1.ResumeLayout(false);
@@ -555,7 +552,6 @@ namespace VoltageDropCalculator
         private System.Windows.Forms.TextBox txt_C;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_R;
-        private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
